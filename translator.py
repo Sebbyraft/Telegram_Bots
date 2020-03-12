@@ -3,8 +3,9 @@ from googletrans import Translator
 import time
 import os
 from dotenv import load_dotenv
-TRANSLATOR_TOKEN = os.getenv('TRANSLATOR_TOKEN')
-print(TRANSLATOR_TOKEN)
+load_dotenv('tokens.env')
+
+TRANSLATOR_TOKEN = os.environ.get("TRANSLATOR_TOKEN")
 
 def on_chat_message(msg):
   content_type, _, chat_id = telepot.glance(msg)

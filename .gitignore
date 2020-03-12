@@ -1,3 +1,4 @@
 .vscode
 telegram_bots
 tokens.env
+__pycache__
