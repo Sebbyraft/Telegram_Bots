@@ -1,8 +1,10 @@
 import telepot
 from googletrans import Translator
 import time
-
-TOKEN = '1006812589:AAFen-HDBqxjBWnQzGkYouriwjpohi51EJk'
+import os
+from dotenv import load_dotenv
+TRANSLATOR_TOKEN = os.getenv('TRANSLATOR_TOKEN')
+print(TRANSLATOR_TOKEN)
 
 def on_chat_message(msg):
   content_type, _, chat_id = telepot.glance(msg)
@@ -32,7 +34,7 @@ def on_chat_message(msg):
     else:
       bot.sendMessage(chat_id, 'Comando non valido, prova con !help')
 
-bot = telepot.Bot(TOKEN)
+bot = telepot.Bot(TRANSLATOR_TOKEN)
 bot.message_loop(on_chat_message)
 
 print('Listening ...')
